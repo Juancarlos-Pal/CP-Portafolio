@@ -1,9 +1,29 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
+
+const SERVICE_ID  = 'service_hpvfi6g'
+const TEMPLATE_ID = 'template_tr8ms21'
+const PUBLIC_KEY  = 'N15lrklNySCKsAwUh'
 
 export default function Contact() {
-  const ref = useRef(null)
+  const ref    = useRef(null)
+  const formRef = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      setStatus('success')
+      formRef.current.reset()
+    } catch {
+      setStatus('error')
+    }
+  }
 
   const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
@@ -55,43 +75,64 @@ export default function Contact() {
           Disponible para proyectos freelance, colaboraciones y oportunidades. ¡Escríbeme sin compromiso!
         </motion.p>
 
-        <motion.div {...fade(0.3)} style={{ display: 'flex', flexDirection: 'column', gap: 11, textAlign: 'left' }}>
+        <motion.form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          {...fade(0.3)}
+          style={{ display: 'flex', flexDirection: 'column', gap: 11, textAlign: 'left' }}
+        >
           <input
-            type="text" placeholder="Tu nombre"
+            name="from_name"
+            type="text"
+            placeholder="Tu nombre"
+            required
             style={inputStyle}
             onFocus={handleFocus} onBlur={handleBlur}
           />
           <input
-            type="email" placeholder="Tu email"
+            name="from_email"
+            type="email"
+            placeholder="Tu email"
+            required
             style={inputStyle}
             onFocus={handleFocus} onBlur={handleBlur}
           />
           <textarea
+            name="message"
             placeholder="Cuéntame sobre tu proyecto..."
             rows={4}
+            required
             style={{ ...inputStyle, resize: 'none' }}
             onFocus={handleFocus} onBlur={handleBlur}
           />
+
           <motion.button
-            whileHover={{ boxShadow: '0 10px 32px rgba(255,107,0,0.55)', y: -2 }}
+            type="submit"
+            disabled={status === 'sending'}
+            whileHover={status !== 'sending' ? { boxShadow: '0 10px 32px rgba(255,107,0,0.55)', y: -2 } : {}}
             whileTap={{ scale: 0.98 }}
             style={{
               padding: '15px', borderRadius: 10, fontSize: 15.5,
               fontWeight: 500, fontFamily: 'inherit',
-              background: '#FF6B00', color: '#fff',
-              border: 'none', cursor: 'pointer', marginTop: 4,
-              transition: 'all .3s'
+              background: status === 'success' ? '#22c55e' : '#FF6B00',
+              color: '#fff', border: 'none', cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+              marginTop: 4, transition: 'background .3s',
+              opacity: status === 'sending' ? 0.7 : 1
             }}
           >
-            Enviar mensaje
+            {status === 'idle'    && 'Enviar mensaje'}
+            {status === 'sending' && 'Enviando...'}
+            {status === 'success' && '¡Mensaje enviado! ✓'}
+            {status === 'error'   && 'Error, intenta de nuevo'}
           </motion.button>
-        </motion.div>
+
+        </motion.form>
 
         <motion.p {...fade(0.4)} style={{
           color: 'rgba(255,255,255,0.2)', fontSize: 12.5,
           marginTop: 34, letterSpacing: '.5px'
         }}>
-          juan@ejemplo.com · Zapopan, Jalisco · México
+          juan.palomeque.m96@gmail.com · Guadalajara, Jalisco · México
         </motion.p>
 
       </div>
@@ -103,7 +144,7 @@ export default function Contact() {
         borderTop: '1px solid rgba(255,107,0,0.12)', paddingTop: 28
       }}>
         <p style={{ color: 'rgba(255,255,255,0.22)', fontSize: 13 }}>
-          © 2025 Juan David Pérez López. Hecho con código y café.
+          © 2025 JCarlos Palomeque. Hecho con código y café.
         </p>
         <div style={{ display: 'flex', gap: 18 }}>
           {['GitHub', 'LinkedIn', 'Twitter/X'].map(s => (
