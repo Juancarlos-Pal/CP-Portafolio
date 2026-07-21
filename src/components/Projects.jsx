@@ -22,6 +22,36 @@ const projects = [
     desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
     tags: ['React', 'Chart.js', 'REST API'],
   },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
+  {
+    title: 'Dashboard Analytics',
+    desc: 'Panel de métricas con gráficas en tiempo real e integración completa con WooCommerce REST API.',
+    tags: ['React', 'Chart.js', 'REST API'],
+  },
 ]
 
 function ProjectCard({ title, desc, tags, delay, inView }) {
