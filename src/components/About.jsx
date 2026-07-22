@@ -2,9 +2,9 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const stats = [
-  { num: '5+',  label: 'Años de experiencia' },
-  { num: '10+', label: 'Proyectos completados' },
-  { num: '11+', label: 'Clientes satisfechos' },
+  { num: '5+',  label: 'Años desarrollando' },
+  { num: 'WordPress', label: 'Especialista' },
+  { num: 'Shopify', label: 'E-commerce' },
   { num: '∞',   label: 'Ganas de aprender', orange: true },
 ]
 
@@ -33,7 +33,7 @@ export default function About() {
           fontFamily: 'Syne, sans-serif', fontWeight: 800,
           fontSize: 'clamp(26px,4vw,42px)', marginBottom: 52, lineHeight: 1.15
         }}>
-          Webmaster con pasión<br />por el frontend moderno
+          E-commerce, desarrollo web y frontend moderno
         </motion.h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: 56, alignItems: 'start' }}>
@@ -41,10 +41,10 @@ export default function About() {
           {/* texto */}
           <motion.div {...fade(0.2)}>
             {[
-              'Soy Ingeniero en Software especializado en e-commerce con +5 años de experiencia administrando y optimizando plataformas Shopify y WordPress/WooCommerce de alto tráfico. , creando sitios en WordPress y desarrollando soluciones web a medida. Me apasiona el detalle visual y la experiencia de usuario.',
-              'Experiencia contrastada en gestión integral de catálogo, maquetación UI/UX de alta conversión, integración de pasarelas de pago, optimización SEO',
-              'Actualmente profundizando en React, Next.js y animaciones avanzadas para crear interfaces que no solo funcionen perfecto, sino que genuinamente deslumbren.',
-              'Basado en Guadalara, Jalisco — disponible para proyectos remotos y locales.'
+              'Soy Ingeniero en Software y actualmente trabajo como E-commerce Developer & Webmaster, especializado en el desarrollo, mantenimiento y optimización de plataformas Shopify, WordPress y WooCommerce.',
+              'Durante los últimos cinco años he participado en proyectos que van desde tiendas en línea y catálogos B2B hasta sitios corporativos, integrando soluciones enfocadas en rendimiento, experiencia de usuario, SEO técnico y procesos de negocio.',
+              'Actualmente estoy ampliando mis conocimientos en React, Next.js y tecnologías modernas de frontend, con el objetivo de complementar mi experiencia en e-commerce y evolucionar hacia un perfil cada vez más sólido como desarrollador frontend.',
+              'Creo en el aprendizaje continuo y en construir soluciones que no solo funcionen correctamente, sino que también ofrezcan una experiencia excepcional para quienes las utilizan.'
             ].map((p, i) => (
               <p key={i} style={{ color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, fontSize: 15.5, marginBottom: 17 }}>{p}</p>
             ))}
