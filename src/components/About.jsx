@@ -2,9 +2,9 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const stats = [
-  { num: '3+',  label: 'Años de experiencia' },
-  { num: '20+', label: 'Proyectos completados' },
-  { num: '15+', label: 'Clientes satisfechos' },
+  { num: '5+',  label: 'Años de experiencia' },
+  { num: '10+', label: 'Proyectos completados' },
+  { num: '11+', label: 'Clientes satisfechos' },
   { num: '∞',   label: 'Ganas de aprender', orange: true },
 ]
 
@@ -41,9 +41,10 @@ export default function About() {
           {/* texto */}
           <motion.div {...fade(0.2)}>
             {[
-              'Soy Ing. en Software con experiencia administrando ecommerce, creando sitios en WordPress y desarrollando soluciones web a medida. Me apasiona el detalle visual y la experiencia de usuario.',
+              'Soy Ingeniero en Software especializado en e-commerce con +5 años de experiencia administrando y optimizando plataformas Shopify y WordPress/WooCommerce de alto tráfico. , creando sitios en WordPress y desarrollando soluciones web a medida. Me apasiona el detalle visual y la experiencia de usuario.',
+              'Experiencia contrastada en gestión integral de catálogo, maquetación UI/UX de alta conversión, integración de pasarelas de pago, optimización SEO',
               'Actualmente profundizando en React, Next.js y animaciones avanzadas para crear interfaces que no solo funcionen perfecto, sino que genuinamente deslumbren.',
-              'Basado en Zapopan, Jalisco — disponible para proyectos remotos y locales.'
+              'Basado en Guadalara, Jalisco — disponible para proyectos remotos y locales.'
             ].map((p, i) => (
               <p key={i} style={{ color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, fontSize: 15.5, marginBottom: 17 }}>{p}</p>
             ))}
