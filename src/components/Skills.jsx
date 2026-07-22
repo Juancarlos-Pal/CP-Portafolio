@@ -10,27 +10,37 @@ const row1 = [
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',         name: 'React' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',       name: 'Node.js' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',             name: 'Git' },
+  { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg',     name: 'Shopify' },
+
 ]
 const row2 = [
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',         name: 'MySQL' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',         name: 'Figma' },
+    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg', name: 'Bootstrap' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', name: 'Tailwind' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',       name: 'Next.js' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg',           name: 'Sass' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg',       name: 'jQuery' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',       name: 'GitHub' },
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',       name: 'VS Code' },
+  { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg', name: 'Photoshop' },
+
 ]
 
 const skills = [
   { name: 'HTML / CSS',          pct: 90 },
   { name: 'WordPress',           pct: 85 },
   { name: 'WooCommerce',         pct: 80 },
-  { name: 'JavaScript',          pct: 70 },
-  { name: 'PHP',                 pct: 65 },
+  { name: 'Shopify',             pct: 83 },
+  { name: 'JavaScript',          pct: 60 },
+  { name: 'PHP',                 pct: 45 },
   { name: 'SEO Técnico',         pct: 72 },
-  { name: 'React (en progreso)', pct: 45 },
-  { name: 'Git & Versionado',    pct: 65 },
+  { name: 'React (en progreso)', pct: 25 },
+  { name: 'Git & Versionado',    pct: 55 },
+  { name: 'Figma',               pct: 40 },
+  { name: 'IA Generativa',       pct: 70 },
+
+
 ]
 
 function Chip({ icon, name }) {
