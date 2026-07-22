@@ -66,7 +66,7 @@ const projects = [
   },
 ]
 
-function ProjectCard({ title, desc, tags, delay, inView }) {
+function ProjectCard({ title, desc, tags, url, delay, inView }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -129,6 +129,25 @@ function ProjectCard({ title, desc, tags, delay, inView }) {
           }}>{t}</span>
         ))}
       </div>
+      {url && (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: 'inline-flex', alignItems: 'center', gap: 6,
+      marginTop: 16, color: '#FF6B00', fontSize: 13,
+      textDecoration: 'none', fontWeight: 500,
+      transition: 'gap .2s'
+    }}
+    onMouseEnter={e => e.currentTarget.style.gap = '10px'}
+    onMouseLeave={e => e.currentTarget.style.gap = '6px'}
+  >
+    Ver proyecto
+    <span style={{ fontSize: 16 }}>→</span>
+  </a>
+)}
+      
     </motion.div>
   )
 }
