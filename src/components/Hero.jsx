@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
-const WORDS = ['Desarrollador Frontend', 'Webmaster', 'Especialista WordPress', 'Entusiasta de React']
+const WORDS = ['E-commerce Developer', 'Webmaster']
 
 function useTyping(el) {
   useEffect(() => {
@@ -192,6 +192,21 @@ export default function Hero() {
             animation:'blink 1s step-end infinite'
           }} />
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.52, duration: 0.7 }}
+          style={{
+            color: 'rgba(255,255,255,0.55)',
+            fontSize: 15,
+            lineHeight: 1.75,
+            marginBottom: 36,
+            maxWidth: 480
+          }}
+          >
+            Construyo plataformas Shopify y WordPress enfocadas en rendimiento, experiencia de usuario y crecimiento del negocio. 
+            Actualmente ampliando mi stack hacia el desarrollo frontend con React.
+          </motion.p>
 
         <motion.div
           initial={{ opacity:0, y:16 }} animate={{ opacity:1, y:0 }} transition={{ delay:.6, duration:.7 }}
