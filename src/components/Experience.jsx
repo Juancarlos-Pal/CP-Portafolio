@@ -3,22 +3,28 @@ import { motion, useInView } from 'framer-motion'
 
 const experience = [
   {
-    role: 'Webmaster Senior',
-    company: 'Agencia Digital MX',
+    role: 'E-commerce Developer & Webmaster',
+    company: 'OMG International',
     period: '2022 – Presente',
-    desc: 'Administración de 8+ ecommerce en WooCommerce. Optimización de SEO técnico, velocidad y tasa de conversión. Desarrollo de plugins y temas personalizados en PHP.'
+    desc: 'Lidero la evolución técnica de plataformas Shopify y WordPress, colaborando con equipos de marketing y diseño para desarrollar experiencias digitales enfocadas en conversión, rendimiento y escalabilidad.'
   },
   {
     role: 'Desarrollador Web Freelance',
     company: 'Proyectos independientes',
-    period: '2020 – 2022',
-    desc: 'Sitios WordPress a medida para PyMEs. Integración de pasarelas de pago y sistemas de reservas. Contratos de soporte y mantenimiento mensual.'
+    period: '2020 – Presente',
+    desc: 'He colaborado con empresas de distintos sectores desarrollando tiendas en línea, sitios corporativos y soluciones a medida. Cada proyecto representa un reto distinto y una oportunidad para seguir aprendiendo nuevas tecnologías.'
   },
   {
-    role: 'Ingeniería en Software',
-    company: 'Universidad de Guadalajara',
-    period: '2016 – 2021',
-    desc: 'Formación en software, bases de datos, algoritmos y metodologías ágiles. Proyecto de capstone con enfoque en apps web de alto rendimiento.'
+    role: 'Desarrollador Web',
+    company: 'Möller Consultores',
+    period: '2018 – 2019',
+    desc: 'Aquí consolidé mis bases en desarrollo frontend y WordPress, participando en plataformas internas, sitios corporativos y proyectos desarrollados desde cero.'
+  },
+  {
+    role: 'Prácticas Profesionales',
+    company: 'Universidad Politécnica de Tapachula',
+    period: '2017',
+    desc: 'Fue mi primer acercamiento al desarrollo profesional, trabajando en soporte, infraestructura y desarrollo web dentro de la universidad.'
   },
 ]
 
