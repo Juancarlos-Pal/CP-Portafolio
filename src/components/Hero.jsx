@@ -201,7 +201,7 @@ export default function Hero() {
             fontSize: 15,
             lineHeight: 1.75,
             marginBottom: 36,
-            maxWidth: 480
+            maxWidth: 600
           }}
           >
             Construyo plataformas Shopify y WordPress enfocadas en rendimiento, experiencia de usuario y crecimiento del negocio. 
