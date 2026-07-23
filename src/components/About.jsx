@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion'
 
 const stats = [
   { num: '5+',  label: 'Años desarrollando' },
-  { num: 'WordPress', label: 'Especialista' },
-  { num: 'Shopify', label: 'E-commerce' },
+  { num: '10+', label: 'Proyectos completados' },
+  { num: '11+', label: 'E-commerce' },
   { num: '∞',   label: 'Ganas de aprender', orange: true },
 ]
 
@@ -44,7 +44,6 @@ export default function About() {
               'Soy Ingeniero en Software y actualmente trabajo como E-commerce Developer & Webmaster, especializado en el desarrollo, mantenimiento y optimización de plataformas Shopify, WordPress y WooCommerce.',
               'Durante los últimos cinco años he participado en proyectos que van desde tiendas en línea y catálogos B2B hasta sitios corporativos, integrando soluciones enfocadas en rendimiento, experiencia de usuario, SEO técnico y procesos de negocio.',
               'Actualmente estoy ampliando mis conocimientos en React, Next.js y tecnologías modernas de frontend, con el objetivo de complementar mi experiencia en e-commerce y evolucionar hacia un perfil cada vez más sólido como desarrollador frontend.',
-              'Creo en el aprendizaje continuo y en construir soluciones que no solo funcionen correctamente, sino que también ofrezcan una experiencia excepcional para quienes las utilizan.'
             ].map((p, i) => (
               <p key={i} style={{ color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, fontSize: 15.5, marginBottom: 17 }}>{p}</p>
             ))}
