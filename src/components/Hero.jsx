@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import useIsMobile from '../useIsMobile'
 
 const WORDS = ['E-commerce Developer', 'Webmaster']
 
@@ -152,6 +153,7 @@ export default function Hero() {
   const canvasRef = useRef(null)
   const heroRef   = useRef(null)
   const typedRef  = useRef(null)
+  const isMobile = useRef(null)
 
   useLava(canvasRef, heroRef)
   useTyping(typedRef)
@@ -160,11 +162,12 @@ export default function Hero() {
     <section id="hero" ref={heroRef} style={{
       minHeight: '100vh', background: '#000',
       display: 'flex', alignItems: 'center',
-      padding: '120px 60px 80px', position: 'relative', overflow: 'hidden'
+      padding: isMobile ? '100px 24px 60px' : '120px 60px 80px',
+      position: 'relative', overflow: 'hidden'
     }}>
       <canvas ref={canvasRef} style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }} />
 
-      <div style={{ position:'relative', zIndex:1, maxWidth:680 }}>
+      <div style={{ position:'relative', zIndex:1, maxWidth: isMobile ? '100%': 680 }}>
         <motion.span
           initial={{ opacity:0, y:16 }} animate={{ opacity:1, y:0 }} transition={{ delay:.15, duration:.7 }}
           style={{ color:'#FF6B00', fontSize:11, letterSpacing:'3.5px', textTransform:'uppercase', display:'block', marginBottom:18 }}
@@ -174,7 +177,7 @@ export default function Hero() {
 
         <motion.h1
           initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} transition={{ delay:.3, duration:.8 }}
-          style={{ fontFamily:'Syne, sans-serif', fontWeight:800, fontSize:'clamp(50px,7vw,88px)', lineHeight:1.02, marginBottom:20 }}
+          style={{ fontFamily:'Syne, sans-serif', fontWeight:800, fontSize: isMobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(50px, 7vw, 88px)', lineHeight:1.02, marginBottom:20 }}
         >
           Carlos<br />
           <span style={{ color:'#FF6B00', textShadow:'0 0 50px rgba(255,107,0,0.45)' }}>Palomeque</span>
@@ -201,7 +204,7 @@ export default function Hero() {
             fontSize: 15,
             lineHeight: 1.75,
             marginBottom: 36,
-            maxWidth: 600
+            maxWidth: 800
           }}
           >
             Construyo plataformas Shopify y WordPress enfocadas en rendimiento, experiencia de usuario y crecimiento del negocio. 
@@ -234,18 +237,18 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
-
-      {/* scroll hint */}
-      <div style={{ position:'absolute', bottom:34, left:'50%', transform:'translateX(-50%)', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:.5 }}>
-        <span style={{ fontSize:10, letterSpacing:'3px', textTransform:'uppercase' }}>scroll</span>
-        <div style={{
-          width:22, height:22,
-          borderRight:'1.5px solid #FF6B00', borderBottom:'1.5px solid #FF6B00',
-          transform:'rotate(45deg)', boxShadow:'2px 2px 6px rgba(255,107,0,0.4)',
-          animation:'bounce 1.6s ease-in-out infinite'
-        }} />
-      </div>
-
+      {/* scroll hint */}      
+      {!isMobile && (
+        <div style={{ position:'absolute', bottom:34, left:'50%', transform:'translateX(-50%)', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:.5 }}>
+          <span style={{ fontSize:10, letterSpacing:'3px', textTransform:'uppercase' }}>scroll</span>
+          <div style={{
+            width:22, height:22,
+            borderRight:'1.5px solid #FF6B00', borderBottom:'1.5px solid #FF6B00',
+            transform:'rotate(45deg)', boxShadow:'2px 2px 6px rgba(255,107,0,0.4)',
+            animation:'bounce 1.6s ease-in-out infinite'
+          }} />
+        </div>
+      )}
       <style>{`
         @keyframes blink { 50% { opacity: 0 } }
         @keyframes bounce {

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import useIsMobile from '../useIsMobile'
 
 const experience = [
   {
@@ -75,9 +76,10 @@ function TimelineItem({ role, company, period, desc, delay, inView }) {
 export default function Experience() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isMobile = useIsMobile()
 
   return (
-    <section id="experience" ref={ref} style={{ background: '#050505', padding: '100px 60px', position: 'relative' }}>
+    <section id="experience" ref={ref} style={{ background: '#050505', padding: isMobile ? '80px 24px' : '100px 60px', position: 'relative' }}>
       <div style={{ maxWidth: 940, margin: '0 auto' }}>
 
         <motion.span

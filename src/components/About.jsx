@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import useIsMobile from '../useIsMobile'
 
 const stats = [
   { num: '5+',  label: 'Años desarrollando' },
@@ -11,6 +12,7 @@ const stats = [
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isMobile = useIsMobile()
 
   const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 28 },
@@ -19,7 +21,7 @@ export default function About() {
   })
 
   return (
-    <section id="about" ref={ref} style={{ background: '#000', padding: '100px 60px', position: 'relative' }}>
+    <section id="about" ref={ref} style={{ background: '#000', padding: isMobile ? '80px 24px' : '100px 60px', position: 'relative' }}>
       <div style={{ maxWidth: 940, margin: '0 auto' }}>
 
         <motion.span {...fade(0)} style={{
@@ -36,7 +38,7 @@ export default function About() {
           E-commerce, desarrollo web y frontend moderno
         </motion.h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: 56, alignItems: 'start' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.25fr 1fr', gap: isMobile ? 36 : 56, alignItems: 'start' }}>
 
           {/* texto */}
           <motion.div {...fade(0.2)}>

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import useIsMobile from '../useIsMobile'
 
 const projects = [
   {
@@ -155,9 +156,10 @@ function ProjectCard({ title, desc, tags, url, delay, inView }) {
 export default function Projects() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isMobile = useIsMobile()
 
   return (
-    <section id="projects" ref={ref} style={{ background: '#000', padding: '100px 60px', position: 'relative' }}>
+    <section id="projects" ref={ref} style={{ background: '#000', padding: isMobile ? '80px 24px' : '100px 60px', position: 'relative' }}>
       <div style={{ maxWidth: 940, margin: '0 auto' }}>
 
         <motion.span
@@ -176,7 +178,7 @@ export default function Projects() {
           Trabajo reciente
         </motion.h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 20 }}>
           {projects.map((p, i) => (
             <ProjectCard key={p.title} {...p} inView={inView} delay={0.2 + i * 0.12} />
           ))}

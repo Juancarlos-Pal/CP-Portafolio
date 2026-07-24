@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser'
+import useIsMobile from '../useIsMobile'
 
 const SERVICE_ID  = 'service_hpvfi6g'
 const TEMPLATE_ID = 'template_tr8ms21'
@@ -10,6 +11,7 @@ export default function Contact() {
   const ref    = useRef(null)
   const formRef = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isMobile = useIsMobile()
 
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
@@ -51,7 +53,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} style={{ background: '#000', padding: '100px 60px' }}>
+    <section id="contact" ref={ref} style={{ background: '#000', padding: isMobile ? '80px 24px' : '100px 60px' }}>
       <div style={{ maxWidth: 540, margin: '0 auto', textAlign: 'center' }}>
 
         <motion.span {...fade(0)} style={{
@@ -140,8 +142,14 @@ export default function Contact() {
       {/* Footer */}
       <motion.footer {...fade(0.5)} style={{
         maxWidth: 940, margin: '80px auto 0',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        borderTop: '1px solid rgba(255,107,0,0.12)', paddingTop: 28
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: isMobile ? 12 : 0,
+        textAlign: isMobile ? 'center' : 'left',
+        borderTop: '1px solid rgba(255,107,0,0.12)',
+        paddingTop: 28
       }}>
         <p style={{ color: 'rgba(255,255,255,0.22)', fontSize: 13 }}>
           © 2025 JCarlos Palomeque. Hecho con código y café.

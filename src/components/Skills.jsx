@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import useIsMobile from '../useIsMobile'
 
 const row1 = [
   { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',         name: 'HTML5' },
@@ -107,9 +108,10 @@ function SkillBar({ name, pct, inView, delay }) {
 export default function Skills() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isMobile = useIsMobile()
 
   return (
-    <section id="skills" ref={ref} style={{ background: '#050505', padding: '100px 60px', position: 'relative' }}>
+    <section id="skills" ref={ref} style={{ background: '#050505', padding: isMobile ? '80px 24px' : '100px 60px', position: 'relative' }}>
       <style>{`
         @keyframes mqr { from { transform: translateX(0) } to { transform: translateX(-50%) } }
         @keyframes mql { from { transform: translateX(-50%) } to { transform: translateX(0) } }
@@ -144,7 +146,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Skill bars */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px 64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '22px' : '28px 64px' }}>
           {skills.map((s, i) => (
             <SkillBar key={s.name} {...s} inView={inView} delay={0.3 + i * 0.07} />
           ))}
